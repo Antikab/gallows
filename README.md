@@ -1,6 +1,6 @@
 # Gallows (Виселица) - угадай имя
 
-<img src="readme_assets/game-preview.jpg" alt="Gallows Preview" width="0%">
+<img src="readme_assets/game-preview.jpg" alt="Gallows Preview" width="50%">
 
 Проект на Vue 3 (Composition API) и TypeScript. [(Запуск)](...)
 
