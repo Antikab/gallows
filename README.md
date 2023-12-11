@@ -1,7 +1,7 @@
 # Gallows (Виселица) - угадай имя
 
 Проект на Vue 3 (Composition API) и TypeScript. [(Запуск)](...)
-![Gallows](readme_assets/game-preview.jpg)
+![Gallows Preview](readme_assets/game-preview.jpg){:width="60%"}
 
 ## Стек
 
