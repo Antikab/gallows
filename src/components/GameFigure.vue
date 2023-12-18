@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
-  wrongLettersCount: number;
+  wrongLettersCount: number
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>

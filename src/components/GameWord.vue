@@ -1,49 +1,49 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 
 interface Props {
-  word: string;
-  correctLetters: string[];
-  addLetter: (letter: string) => void;
-  isDisplayInput: boolean;
+  word: string
+  correctLetters: string[]
+  addLetter: (letter: string) => void
+  isDisplayInput: boolean
 }
 
-const { word, correctLetters, addLetter, isDisplayInput } =
-  defineProps<Props>();
+const { word, correctLetters, addLetter, isDisplayInput } = defineProps<Props>()
 
-const inputLetter = ref<string>("");
-const maxInputLength = 1;
+const inputLetter = ref<string>('')
+const maxInputLength = 1
 const onInput = () => {
   if (inputLetter.value.length === maxInputLength) {
-    addLetter(inputLetter.value);
-    inputLetter.value = "";
+    addLetter(inputLetter.value)
+    inputLetter.value = ''
   }
-};
+}
 
-const isMobileOrTablet = ref<boolean>(false);
+const isMobileOrTablet = ref<boolean>(false)
 
 onMounted(() => {
   isMobileOrTablet.value =
-    "ontouchstart" in window ||
+    'ontouchstart' in window ||
     navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(hover: none)").matches;
-});
+    window.matchMedia('(hover: none)').matches
+})
 </script>
 
 <template>
   <div class="word">
     <span v-for="(letter, index) in word" :key="index" class="letter">
-      {{ correctLetters.includes(letter) ? letter : "" }}
+      {{ correctLetters.includes(letter) ? letter : '' }}
     </span>
 
     <div v-if="isMobileOrTablet && isDisplayInput" class="input-container">
       <input
         type="text"
         :value="inputLetter"
-        @keydown="onInput"
+        @keyup="onInput"
         maxlength="1"
         placeholder="'а'"
         class="input"
+        inputmode="none"
       />
     </div>
   </div>
