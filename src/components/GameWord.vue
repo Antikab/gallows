@@ -13,10 +13,6 @@ const { word, correctLetters, addLetter, isDisplayInput } = defineProps<Props>()
 const inputLetter = ref<string>('')
 const maxInputLength = 1
 const onInput = () => {
-  // Не делаем ничего при каждом вводе, дожидаемся события change
-}
-
-const onChange = () => {
   if (inputLetter.value.length === maxInputLength) {
     addLetter(inputLetter.value)
     inputLetter.value = ''
@@ -44,7 +40,6 @@ onMounted(() => {
         type="text"
         :value="inputLetter"
         @input="onInput"
-        @change="onChange"
         maxlength="1"
         placeholder="'а'"
         class="input"
