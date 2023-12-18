@@ -39,11 +39,10 @@ onMounted(() => {
       <input
         type="text"
         :value="inputLetter"
-        @keyup="onInput"
+        @input="onInput"
         maxlength="1"
         placeholder="'а'"
         class="input"
-        inputmode="none"
       />
     </div>
   </div>

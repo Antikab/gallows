@@ -40,6 +40,11 @@ watch(correctLetters, () => {
 
 window.addEventListener('keydown', ({ key }) => {
   const lowerCaseKey = key.toLowerCase()
+  const isMobileOrTablet = ref<boolean>(false)
+
+  if (isMobileOrTablet.value) {
+    return
+  }
 
   if (isLose.value || isWin.value) {
     return
