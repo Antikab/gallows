@@ -20,10 +20,7 @@ const {
   addLetter,
   resetLetters,
 } = useLetters(word);
-const handleUpdateLetter = (letter: string) => {
-  // Обработка введенной буквы
-  console.log(`Введена буква: ${letter}`);
-};
+
 const { notification, showNotification } = useNotification();
 const popup = ref<InstanceType<typeof GamePopap> | null>(null);
 const restart = async () => {
@@ -66,16 +63,18 @@ window.addEventListener("keydown", ({ key }) => {
 
 <template>
   <GameHeader />
-  <div class="game-container">
-    <GameFigure :wrong-letters-count="wrongLetters.length" />
-    <GameWord
-      :on-update-letter="handleUpdateLetter"
-      :word="word"
-      :correct-letters="correctLetters"
-      :is-display-input="isDisplayInput"
-    />
-    <GameWrongLetters :wrong-letters="wrongLetters" />
+  <div>
+    <div class="game-container">
+      <GameFigure :wrong-letters-count="wrongLetters.length" />
+      <GameWord
+        :add-letter="addLetter"
+        :word="word"
+        :correct-letters="correctLetters"
+        :is-display-input="isDisplayInput"
+      />
+      <GameWrongLetters :wrong-letters="wrongLetters" />
+    </div>
+    <GamePopap ref="popup" :word="word" @restart="restart" />
+    <GameNotification ref="notification" />
   </div>
-  <GamePopap ref="popup" :word="word" @restart="restart" />
-  <GameNotification ref="notification" />
 </template>
