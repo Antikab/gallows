@@ -73,13 +73,10 @@ h2 {
 }
 
 .wrong-letters-container {
-  position: fixed;
-  bottom: 7%;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 10px;
 }
 
 .wrong-letters-container p {
@@ -231,12 +228,6 @@ h2 {
       flex-direction: row;
     }
 
-    .wrong-letters-container {
-      bottom: 20%;
-      left: 60%;
-      transform: translateX(-40%);
-    }
-
     .notification-container {
       padding: 0.5rem 0.5rem;
     }
@@ -265,12 +256,6 @@ h2 {
       margin-right: 30px;
     }
 
-    .wrong-letters-container {
-      bottom: 20%;
-      left: 60%;
-      transform: translateX(-40%);
-    }
-
     .notification-container {
       padding: 0.5rem 0.5rem;
     }
@@ -280,9 +265,5 @@ h2 {
 @media only screen and (min-width: 1024px) {
   .notification-container p {
     font-size: 1.5rem;
-  }
-
-  .wrong-letters-container {
-    bottom: 25%;
   }
 }
