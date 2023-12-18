@@ -7,6 +7,7 @@ export const useLetters = (word: Ref<string>) => {
   const isLose = computed(() => wrongLetters.value.length === 6)
   const isWin = computed(() => [...word.value].every((x) => correctLetters.value.includes(x)))
   const addLetter = (key: string) => {
+    if (key in wrongLetters.value) return
     if (/[а-яА-ЯёЁ]/.test(key)) {
       letters.value.push(key.toLowerCase())
     }
