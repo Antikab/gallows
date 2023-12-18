@@ -4,18 +4,18 @@ import { ref, onMounted } from "vue";
 interface Props {
   word: string;
   correctLetters: string[];
-  onUpdateLetter: (letter: string) => void;
+  addLetter: (letter: string) => void;
   isDisplayInput: boolean;
 }
 
-const { word, correctLetters, onUpdateLetter, isDisplayInput } =
+const { word, correctLetters, addLetter, isDisplayInput } =
   defineProps<Props>();
 
 const inputLetter = ref<string>("");
-
+const maxInputLength = 1;
 const onInput = () => {
-  if (inputLetter.value.length === 1) {
-    onUpdateLetter(inputLetter.value);
+  if (inputLetter.value.length === maxInputLength) {
+    addLetter(inputLetter.value);
     inputLetter.value = "";
   }
 };
