@@ -38,7 +38,7 @@ watch(correctLetters, () => {
   }
 })
 
-window.addEventListener('keydown', ({ key }) => {
+window.addEventListener('keyup', ({ key }) => {
   const lowerCaseKey = key.toLowerCase()
   const isMobileOrTablet = ref<boolean>(false)
 
